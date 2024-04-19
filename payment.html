@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.2); /* Light translucent box */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            color: #333;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #00c6ff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0072ff;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        #successMessage {
+            display: none;
+            background-color: rgba(0, 128, 0, 0.8);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #c51162;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="paymentContainer">
+        <h1>Choose Payment Method</h1>
+        <form id="upiForm">
+            <h2>Pay with UPI</h2>
+            <input type="text" name="upiId" placeholder="Enter UPI ID" required><br>
+            <input type="text" name="phoneNumber" placeholder="Enter Phone Number" required><br>
+            <input type="text" name="name" placeholder="Enter Name" required><br>
+            <input type="text" name="bankName" placeholder="Enter Bank Name" required><br>
+            <input type="password" name="upiPin" placeholder="Enter UPI PIN" required><br>
+            <input type="submit" value="Pay">
+        </form>
+        
+        <form id="cardForm">
+            <h2>Pay with Card</h2>
+            <input type="text" name="cardNumber" placeholder="Enter Card Number" required><br>
+            <select name="cardType" required>
+                <option value="visa">Visa</option>
+                <option value="rupay">Rupay</option>
+                <option value="mastercard">Mastercard</option>
+            </select><br>
+            <input type="text" name="phoneNumber" placeholder="Enter Phone Number" required><br>
+            <input type="text" name="name" placeholder="Enter Name" required><br>
+            <input type="text" name="bankName" placeholder="Enter Bank Name" required><br>
+            <input type="password" name="cardPin" placeholder="Enter Card PIN" required><br>
+            <input type="submit" value="Pay">
+        </form>
+    </div>
+
+    <div id="successMessage">
+        <h1>Payment Successful!</h1>
+        <p>Your ticket has been booked.</p>
+        <button id="printTicket">Print Ticket</button>
+    </div>
+
+    <script>
+        document.getElementById('upiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('paymentContainer').style.display = 'none';
+            showSuccessMessage();
+        });
+
+        document.getElementById('cardForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('paymentContainer').style.display = 'none';
+            showSuccessMessage();
+        });
+
+        document.getElementById('printTicket').addEventListener('click', function() {
+            alert('Ticket printed!');
+        });
+
+        function showSuccessMessage() {
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

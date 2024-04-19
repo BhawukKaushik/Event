@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('shelf.png'); /* Ensure this path points to your pixelated store shelf image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for better readability */
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid #000;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Added shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+        }
+        .option:hover {
+            transform: translateY(-5px); /* Slight lift effect */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Enhanced shadow on hover */
+        }
+        .option img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .option span {
+            display: block;
+            font-size: 16px; /* Larger font size for better readability */
+            color: #333; /* Darker text for better contrast */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 255, 0.7); /* More transparency for aesthetic */
+            padding: 15px; /* Increased padding for better visual balance */
+            width: 350px; /* Increased width to accommodate longer titles */
+            border-radius: 10px;
+            border: 1px solid #000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Consistency with option boxes */
+        }
+
+        .header {
+    background-color: rgba(0, 0, 255, 0.7); /* Slightly darker for better contrast */
+    padding: 20px;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    width: 90%; /* More flexible for different screen sizes */
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adding shadow for depth */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* Increased opacity for better legibility */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for emphasis */
+    width: 80%; /* Responsive width */
+    max-width: 400px; /* Maximum width to maintain form proportions */
+}
+.container input, .container button {
+    width: 100%; /* Full width for inputs and buttons */
+    padding: 15px;
+    margin: 10px 0; /* Better spacing between elements */
+    border: 1px solid #ccc; /* Subtle borders for inputs */
+    border-radius: 8px;
+    transition: all 0.3s ease; /* Smooth transitions for interactive elements */
+}
+
+.container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none; /* Remove outline to clean up focus state */
+}
+
+.container button:hover, .container button:focus {
+    background-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Add shadow for 3D button effect */
+}
+    </style>
+</head>
+<body>
+
+    <!-- <div class="header" id="loginHeader">Enter Your Username and Password</div>
+    <div class="container" id="loginContainer">
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+    </div> -->
+    <div id="optionsContainer" style="display: none;"></div>
+    <h1>Select an Option</h1>
+    <div class="options">
+        <a href="create.html" class="option">
+            <img src="create.png" alt="Create Event">
+            <span>Create Event</span>
+        </a>
+        <a href="update.html" class="option">
+            <img src="update.png" alt="Update Event">
+            <span>Update Event</span>
+        </a>
+        <a href="delete.html" class="option">
+            <img src="trash.jpg" alt="Delete Event">
+            <span>Delete Event</span>
+        </a>
+        <a href="budget.html" class="option">
+            <img src="budget.png" alt="Budget Management">
+            <span>Budget Management</span>
+        </a>
+    </div>
+</div>
+    <script>
+         document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Check username and password (you can use AJAX to check with server)
+
+            // For demonstration, assuming username and password are correct
+            document.getElementById('loginHeader').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('optionsContainer').style.display = 'block';
+        });
+
+    
+    </script>
+</body>
+</html>

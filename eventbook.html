@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('stadium.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            padding: 20px;
+            color: #fff;
+            font-size: 28px;
+            text-align: center;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+        }
+
+        .event {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .event:hover {
+            background: #e9ecef;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .event p {
+            margin: 10px 0;
+        }
+
+        button {
+            width: 200px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">Upcoming Events</div>
+    <div class="container">
+        <div class="event" onclick="showBookingForm(1)">
+            <p><strong>The Classical Night</strong></p>
+            <p>Date: 18 April, 2024</p>
+            <p>Time: 10:00 AM - 2:00 PM</p>
+            <p>Venue: Lords</p>
+            <p>Description: Experience the beauty of classical music with top-notch performances.</p>
+        </div>
+        <div class="event" onclick="showBookingForm(3)">
+            <p><strong>Instruo</strong></p>
+            <p>Date: 20 April, 2024</p>
+            <p>Time: 6:00 PM - 9:00 PM</p>
+            <p>Venue: I Hall</p>
+            <p>Description: Dive into the Technical depths of various technologies.</p>
+        </div>
+    </div>
+
+    <script>
+        function showBookingForm(eventId) {
+            window.location.href = 'payment.html?eventId=' + eventId;
+        }
+    </script>
+</body>
+</html>

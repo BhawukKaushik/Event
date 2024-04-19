@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <style>
+        #createEventForm {
+    display: none; /* Hide the create event form initially */
+}
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('shelf.png'); /* Background shelf image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .header {
+            background-color: rgba(0, 0, 255, 0.7); /* Enhanced transparency for depth */
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            width: 90%; /* Responsive width */
+            margin: 20px 0; /* More defined spacing */
+            padding: 15px; /* Increased padding for better visual presence */
+            border-radius: 15px; /* Smoother corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Increased opacity for better readability */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 80%; /* Responsive width */
+            max-width: 500px; /* Maximum width to ensure form does not stretch too wide */
+        }
+        .container input,
+        .container select,
+        .container button {
+            width: 100%; /* Full width for consistency */
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc; /* Subtle border */
+            border-radius: 8px;
+            box-sizing: border-box; /* Box sizing to include padding and borders in width */
+        }
+        .container button {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px; /* Larger font size for button */
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .message-popup {
+            display: none;
+            position: fixed;
+            top: 20%; /* Positioning closer to the top for better visibility */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+            width: 80%;
+            max-width: 300px; /* Responsive and limited width for better design */
+            text-align: center; /* Centered text */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header" id="loginHeader">Enter Your Username and Password</div>
+    <div class="container" id="loginContainer">
+        <form id="loginForm">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    
+    <div class="container">
+        <form id="createEventForm">
+            <div class="header">Enter the following details</div>
+            <input type="text" name="eventName" placeholder="Event Name" required>
+            <label for="eventTime">Time of Event (Start - End):</label>
+            <input type="time" name="eventStartTime" required> -
+            <input type="time" name="eventEndTime" required>
+            <label for="eventDate">Date of Event:</label>
+            <input type="date" name="eventDate" required>
+            <input type="text" name="eventDuration" placeholder="Duration of Event" required>
+            <label for="eventVenue">Venue of Event:</label>
+            <select name="eventVenue" required>
+                <option value="Hall 1">I Hall</option>
+                <option value="Hall 2">Alumni Seminar Hall</option>
+                <option value="Hall 3">Netaji Bhawan</option>
+            </select>
+            <label for="eventType">Type of Event:</label>
+            <select name="eventType" required>
+                <option value="Academic Conference">Academic Conference</option>
+                <option value="Technical and Cultural Events">Technical and Cultural Events</option>
+                <option value="National Events">National Events</option>
+            </select>
+            <input type="password" name="eventPassword" placeholder="Password for Confirmation" required>
+            <button type="submit">Create Event</button>
+        </form>
+    </div>
+    <div id="messagePopup" class="message-popup">Event Created!</div>
+    <script>
+
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Check username and password (you can use AJAX to check with server)
+
+            // For demonstration, assuming username and password are correct
+            document.getElementById('loginHeader').style.display = 'none';
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('createEventForm').style.display = 'block';
+            document.getElementById('createEventForm').style.display = 'block';
+        });
+
+        document.getElementById('createEventForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('createEventForm').reset();
+            showMessagePopup("Event Created!");
+        });
+        
+        function showMessagePopup(message) {
+            var popup = document.getElementById('messagePopup');
+            popup.textContent = message;
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
